@@ -1,5 +1,7 @@
 # Active Quiz
 
+**This is a fork of Moodle plugin mod_activequiz compatible with Moodle 4.1.**
+
 ## What is it?
 This is a type of quiz designed to be used in face-to-face lessons, with a classroom full of computers/tablets/phones.
 The teacher creates the quiz in advance - adding question bank questions from the Moodle question bank.
