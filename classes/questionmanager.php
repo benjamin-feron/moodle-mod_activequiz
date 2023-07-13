@@ -70,7 +70,7 @@ class questionmanager {
         $this->rtq = $rtq;
         $this->renderer = $renderer;
         $this->pagevars = $pagevars;
-        $this->orderedquestions = array();
+        $this->qbankOrderedQuestions = array();
 
         if ( !empty($this->pagevars) ) {
             $this->baseurl = $this->pagevars['pageurl'];

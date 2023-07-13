@@ -32,6 +32,9 @@ defined('MOODLE_INTERNAL') || die();
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class activequiz_disabled_condition extends condition {
+    private $where;
+    private $params;
+
     /**
      * Constructor.
      * @param bool $hide whether to include old "deleted" questions.

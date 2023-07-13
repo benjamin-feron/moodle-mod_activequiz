@@ -32,7 +32,7 @@ class overallgradesview extends \flexible_table implements \renderable {
 
 
     /** @var \mod_activequiz\activequiz $activequiz */
-    protected $activequiz;
+    protected $rtq;
 
     /**
      * Contstruct this table class

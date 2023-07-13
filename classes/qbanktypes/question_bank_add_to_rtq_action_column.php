@@ -26,11 +26,11 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright   2014 University of Wisconsin - Madison
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class question_bank_add_to_rtq_action_column extends \core_question\bank\action_column_base {
+class question_bank_add_to_rtq_action_column extends \core_question\local\bank\action_column_base {
 
     protected $stradd;
 
-    public function init() {
+    public function init(): void {
         parent::init();
         $this->stradd = get_string('addtoquiz', 'activequiz');
     }
@@ -43,13 +43,22 @@ class question_bank_add_to_rtq_action_column extends \core_question\bank\action_
         if (!question_has_capability_on($question, 'use')) {
             return;
         }
-        $this->print_icon('t/add', $this->stradd, $this->qbank->add_to_rtq_url($question->id));
+        $this->print_icon('t/add', $this->stradd, $this->add_to_rtq_url($question->id, $this->qbank->base_url()));
     }
 
-    public function get_required_fields() {
+    public function get_required_fields(): array {
         return array('q.id');
     }
 
+    private function add_to_rtq_url($questionid, $baseurl) {
+        global $CFG;
+        $params = $baseurl->params();
+        $params['questionid'] = $questionid;
+        $params['action'] = 'addquestion';
+        $params['sesskey'] = sesskey();
 
+        return new \moodle_url('/mod/activequiz/edit.php', $params);
+
+    }
 }
 

@@ -368,7 +368,7 @@ class grade {
      * Is public function so that tableviews can get an attempt calculated grade
      *
      * @param \mod_activequiz\activequiz_attempt $attempt
-     * @return number The grade to save
+     * @return \float The grade to save
      */
     public function calculate_attempt_grade($attempt) {
 
